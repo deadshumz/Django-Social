@@ -10,3 +10,4 @@ media
 # Enviroment
 .venv/
 .env
+.vscode/

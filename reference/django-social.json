@@ -3,7 +3,7 @@
   "info": {
     "title": "django-social",
     "version": "1.0",
-    "description": "",
+    "description": "Api for Social on Django!",
     "summary": "Django Social API",
     "contact": {
       "name": "shumz",
@@ -12,11 +12,137 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8000",
+      "url": "http://localhost:8000/api",
       "description": "localhost"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Get All Users",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "x-examples": {
+                    "example-1": [
+                      {
+                        "id": 1,
+                        "username": "user",
+                        "first_name": "John",
+                        "last_name": "Smith",
+                        "email": "example@mail.com",
+                        "date_joined": "2019-09-28T15:30:09.351807Z"
+                      }
+                    ]
+                  },
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "username"
+                      },
+                      "first_name": {
+                        "type": "string",
+                        "example": "John"
+                      },
+                      "last_name": {
+                        "type": "string",
+                        "example": "Smith"
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "username@example.com"
+                      },
+                      "date_joined": {
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "username": "username",
+                        "first_name": "John",
+                        "last_name": "Smith",
+                        "email": "username@example.com",
+                        "date_joined": "2019-08-24T14:15:22Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-users",
+        "description": "Get all users"
+      }
+    },
+    "/user": {
+      "post": {
+        "summary": "Create user",
+        "operationId": "post-user",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Create User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "username"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 6
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "mail@example.com"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "Smith"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          },
+          "description": "Params for creating user"
+        }
+      }
+    }
+  },
   "components": {
     "schemas": {
       "User": {

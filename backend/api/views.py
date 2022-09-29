@@ -18,3 +18,5 @@ def create_user(request, fromat='json'):
         user = serializer.save()
         if user:
             return Response(serializer.data)
+    else:
+        return Response('Username is already taken')

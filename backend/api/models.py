@@ -1,11 +1,11 @@
-from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatars')
+    avatar = models.ImageField(upload_to='avatars', blank=True)
     bio = models.TextField(max_length=256, blank=True, default='default bio')
 
     def save(self, *args, **kwargs):
@@ -18,3 +18,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+

@@ -20,9 +20,11 @@ export default {
     methods : {
         createUser() {
             let user = new FormData()
+            
             for (let i in this.user) {
                 user.append(i, this.user[i])
             }
+            
             axios.post('http://127.0.0.1:8000/api/users/', user)
             .then((response) => {
                 if (response.status === 201) {

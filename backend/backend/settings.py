@@ -35,6 +35,7 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTH_USER_MODEL = 'api.CustomUser' # new
 
 # JWT Settings
 SIMPLE_JWT = {

@@ -12,5 +12,5 @@ class CustomUser(AbstractUser):
 
 
 class Post(models.Model):
-    avatar = models.ImageField(upload_to="posts", blank=False)
+    image = models.ImageField(upload_to="posts", blank=False)
     description = models.TextField(max_length=256, blank=True)

@@ -1,11 +1,10 @@
 from rest_framework.response import Response
 from rest_framework import viewsets, status
-from .models import CustomUser
+from .models import CustomUser, Post
 from . import serializers
 
 
 class CustomUserViewSet(viewsets.ModelViewSet):
-    # permission_classes = (IsAuthenticated, )
     serializer_class = serializers.CustomUserSerializer
     queryset = CustomUser.objects.all()
 
@@ -17,6 +16,11 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     def create(self, request):
         serializer = serializers.CustomUserSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.save()
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PostViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.PostSerializer
+    queryset = Post.objects.all()

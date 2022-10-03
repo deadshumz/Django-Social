@@ -10,7 +10,8 @@ import axios from 'axios'
 
 export default {
     data() {
-        return { 
+        return {
+            image : '',
             user : {
                 username : '',
                 password : '',
@@ -38,6 +39,9 @@ export default {
                 }
             })
         }
+    },
+    beforeMount() {
+        axios.get('')
     }
 }
 </script>

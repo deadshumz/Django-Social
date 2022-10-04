@@ -9,4 +9,4 @@ class CustomUserAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('created', 'modified',)

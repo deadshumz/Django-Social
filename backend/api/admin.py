@@ -4,7 +4,7 @@ from .models import CustomUser, Post
 
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
-    pass
+    filter_horizontal = ('likes',)
 
 
 @admin.register(Post)

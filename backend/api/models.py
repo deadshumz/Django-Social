@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class TimeStampedModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -24,4 +25,4 @@ class Post(TimeStampedModel):
     description = models.TextField(max_length=256, blank=True)
 
     def __str__(self):
-        return f'Post #{self.pk} - {self.user}'
+        return f"{str(self.user).capitalize()}'s post №{self.pk}"

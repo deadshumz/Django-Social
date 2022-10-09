@@ -3,7 +3,7 @@ from .models import CustomUser
 from rest_framework.test import APITestCase
 
 
-class UserTestCase(APITestCase):
+class CustomUserTestCase(APITestCase):
     def setUp(self):
         self.data = {'username': 'testname', 'password': 'testpass'}
         self.user = CustomUser.objects.create_user(

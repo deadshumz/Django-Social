@@ -1,18 +1,6 @@
-# Django Social
-Django Social - is a fullstack web application like instagram.
+---
+description: Here you can see endpoints, models etc
+---
 
-# How to install?
-### Clone Github repository
-```
-git clone  https://github.com/deadshumz/Django-Social.git
-```
-### Install dependencies
-```
-cd backend
+# Django-Social API Documentation
 
-python install -r requirements.txt
-```
-### Run server
-```
-python manage.py runserver
-```
